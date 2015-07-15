@@ -1,3 +1,3 @@
 require('electron-compile').init();
-var Application = require('./scripts/browser/application');
+var Application = require('./src/browser/application');
 application = new Application
