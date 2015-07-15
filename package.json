@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "main": "main.js",
   "devDependencies": {
-    "electron-prebuilt": "^0.29.2"
+    "electron-prebuilt": "^0.29.2",
+    "electron-compile": "*"
+  },
+  "dependencies": {
   }
 }
