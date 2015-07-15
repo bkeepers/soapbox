@@ -5,6 +5,8 @@ app = require('app')  # Module to control application life.
 module.exports =
 class Application
 
+  staticPath: "#{__dirname}/../../static"
+
   windows: null
 
   constructor: (options) ->
@@ -24,7 +26,7 @@ class Application
     mainWindow = new BrowserWindow({width: 400, height: 300})
 
     # and load the index.html of the app.
-    mainWindow.loadUrl('file://' + __dirname + '/../../open.html')
+    mainWindow.loadUrl("file://#{@staticPath}/open.html")
 
     # Emitted when the window is closed.
     mainWindow.on 'closed', ->
@@ -36,5 +38,8 @@ class Application
     @windows.push mainWindow
 
   open: (path) ->
+    if path.endsWith(".md")
+      path = "file://#{@staticPath}/remark.html##{path}"
+
     window = new ApplicationWindow(path)
     @windows.push()
