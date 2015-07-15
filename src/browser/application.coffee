@@ -1,5 +1,6 @@
 ApplicationWindow = require './application-window'
 ipc = require('ipc')
+BrowserWindow = require('browser-window') # Module to create native browser window.
 app = require('app')  # Module to control application life.
 
 module.exports =
