@@ -23,23 +23,25 @@ class Application
 
   ready: =>
     # Create the browser window.
-    mainWindow = new BrowserWindow({width: 400, height: 300})
+    openWindow = new BrowserWindow({width: 400, height: 300})
 
     # and load the index.html of the app.
-    mainWindow.loadUrl("file://#{@staticPath}/open.html")
+    openWindow.loadUrl("file://#{@staticPath}/open.html")
+    ipc.on "open-file", =>
+      openWindow.close()
 
-    # Emitted when the window is closed.
-    mainWindow.on 'closed', ->
-      # Dereference the window object, usually you would store windows
-      # in an array if your app supports multi windows, this is the time
-      # when you should delete the corresponding element.
-      mainWindow = null
-
-    @windows.push mainWindow
+    @addWindow openWindow
 
   open: (path) ->
     if path.endsWith(".md")
       path = "file://#{@staticPath}/remark.html##{path}"
 
-    window = new ApplicationWindow(path)
-    @windows.push()
+    @addWindow new ApplicationWindow(path)
+
+  # Public: Removes the window from the global window list.
+  removeWindow: (window) ->
+    @windows.splice @windows.indexOf(window), 1
+
+  # Public: Adds the window to the global window list.
+  addWindow: (window) ->
+    @windows.push window
