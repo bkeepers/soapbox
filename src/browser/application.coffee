@@ -1,7 +1,7 @@
 ApplicationWindow = require './application-window'
 ipc = require('ipc')
-BrowserWindow = require('browser-window') # Module to create native browser window.
-app = require('app')  # Module to control application life.
+BrowserWindow = require('browser-window')
+app = require('app')
 
 module.exports =
 class Application
@@ -21,6 +21,8 @@ class Application
     app.on 'ready', @ready
 
     ipc.on "open-file", (event, path) => @open(path)
+
+    @windows = []
 
   ready: =>
     @openDialog()
