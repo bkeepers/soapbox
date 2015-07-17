@@ -24,7 +24,7 @@ class Application
 
   ready: =>
     # Create the browser window.
-    openWindow = new BrowserWindow({width: 400, height: 300})
+    openWindow = new BrowserWindow({width: 400, height: 110})
 
     # and load the index.html of the app.
     openWindow.loadUrl("file://#{@staticPath}/open.html")

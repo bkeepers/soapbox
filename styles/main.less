@@ -1,0 +1,60 @@
+@font-family: '.HelveticaNeueDeskInterface-Regular', sans-serif;
+
+* {
+  box-sizing: border-box;
+}
+
+#open {
+  background-color: #d8d8d9;
+  padding: 0 0.75rem;
+  margin: 0;
+
+  input[type=text] {
+    width: 100%;
+    line-height: 2;
+  }
+
+  input[type=file] {
+    position: absolute;
+    left: -100%;
+  }
+}
+
+footer {
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 0.5rem 0.75rem 0.75rem 0.75rem;
+  background-color: #d8d8d9;
+
+  .actions {
+    float:right;
+  }
+}
+
+input, button, .button {
+  background-color: white;
+  background: linear-gradient(#fff 0, #fbfbfb 90%);
+  color: #555;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.15);
+  display: inline-block;
+  font-family: @font-family;
+  font-size: .8rem;
+  line-height: 1.5;
+  cursor: default;
+  padding: 0 10px;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 0 0 3px #8ebaed;
+}
+
+button, .button {
+  text-align: center;
+}

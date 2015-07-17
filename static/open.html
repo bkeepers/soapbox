@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Open</title>
+    <title>Open a Slideshow</title>
+    <link rel="stylesheet" href="../styles/main.less" media="screen" title="no title" charset="utf-8">
   </head>
-  <body>
+  <body id="open">
     <form>
       <p>
         <input id="url" type="text" placeholder="URL of Slide Deck">
-        <button>Open</button>
       </p>
+
+      <footer>
+        <label class="button">
+          Open File…
+          <input id="file" type="file">
+        </label>
+        <div class="actions">
+          <button>Open URL</button>
+        </div>
+    </footer>
     </form>
 
-    <p>
-      <label>
-        Open a file
-        <input id="file" type="file">
-      </label>
-    </p>
     <script type="text/javascript" src="../src/renderer/open.coffee"></script>
   </body>
 </html>
