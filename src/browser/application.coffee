@@ -23,14 +23,11 @@ class Application
     ipc.on "open-file", (event, path) => @open(path)
 
   ready: =>
-    # Create the browser window.
+    @openDialog()
+
+  openDialog: ->
     openWindow = new BrowserWindow({width: 400, height: 110})
-
-    # and load the index.html of the app.
     openWindow.loadUrl("file://#{@staticPath}/open.html")
-    ipc.on "open-file", =>
-      openWindow.close()
-
     @addWindow openWindow
 
   open: (path) ->
@@ -46,3 +43,4 @@ class Application
   # Public: Adds the window to the global window list.
   addWindow: (window) ->
     @windows.push window
+    window.on "closed", => @removeWindow(window)

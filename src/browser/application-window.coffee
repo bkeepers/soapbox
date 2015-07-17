@@ -11,3 +11,6 @@ class ApplicationWindow
     @window.loadUrl(path)
     @menu = Menu.buildFromTemplate(require('./menu-darwin')(app, @window))
     Menu.setApplicationMenu(@menu)
+
+  on: (args...) ->
+    @window.on(args...)
