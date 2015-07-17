@@ -42,6 +42,24 @@ module.exports = (app, window) ->
       ]
     },
     {
+      label: 'File',
+      submenu: [
+        {
+          label: 'Open…',
+          accelerator: 'Command+o',
+          click: -> global.application.openDialog()
+        },
+        {
+          type: 'separator'
+        },
+        {
+          label: 'Close Window',
+          accelerator: 'Command+W',
+          click: -> window.close()
+        }
+      ]
+    },
+    {
       label: 'Edit',
       submenu: [
         {
